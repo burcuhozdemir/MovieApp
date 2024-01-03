@@ -6,13 +6,13 @@ import Title from '../../components/Title/Title';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faTelevision} from '@fortawesome/free-solid-svg-icons';
 import Button from '../../components/Button/Button';
-import BackHeader from '../../components/BackHeader/BackHeader';
+import BackButton from '../../components/BackHeader/BackHeader';
 
-const Login = ({navigation}) => {
+const Signup = ({navigation}) => {
   return (
     <SafeAreaView style={[globalStyle.background, globalStyle.flex]}>
-      <BackHeader
-        title={'Login'}
+      <BackButton
+        title={'Sign up'}
         onPress={() => {
           navigation.goBack();
         }}
@@ -21,4 +21,4 @@ const Login = ({navigation}) => {
   );
 };
 
-export default Login;
+export default Signup;

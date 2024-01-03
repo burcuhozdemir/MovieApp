@@ -12,17 +12,23 @@ const Title = props => {
         return style.title2;
       case 3:
         return style.title3;
+      case 4:
+        return style.title4;
+      case 5:
+        return style.title5;
+      case 6:
+        return style.title6;
+      case 7:
+        return style.title7;
       default:
         return style.title1;
     }
   };
 
   return (
-    <View>
-      <Text style={[styleToApply(), props.color && {color: props.color}]}>
-        {props.title}
-      </Text>
-    </View>
+    <Text style={[styleToApply(), props.color && {color: props.color}]}>
+      {props.title}
+    </Text>
   );
 };
 
