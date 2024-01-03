@@ -17,6 +17,14 @@ const Welcome = ({navigation}) => {
           <FontAwesomeIcon icon={faTelevision} color="#12CDD9" size={75} />
         </View>
         <Title title={'MOVIE'} color={'#FFFFFF'} type={1} />
+        <View style={style.description}>
+          <Title
+            title={'Enter your registered Phone Number to Sign Up'}
+            type={5}
+            color={'#92929D'}
+            center={true}
+          />
+        </View>
         <View style={style.button}>
           <Button
             title="Sign Up"

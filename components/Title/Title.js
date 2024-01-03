@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import style from './style';
 import {View, Text} from 'react-native';
 import PropTypes from 'prop-types';
@@ -25,8 +25,16 @@ const Title = props => {
     }
   };
 
+  const textRef = useRef(null);
+
   return (
-    <Text style={[styleToApply(), props.color && {color: props.color}]}>
+    <Text
+      ref={textRef}
+      style={[
+        styleToApply(),
+        props.color && {color: props.color},
+        props.center && style.center,
+      ]}>
       {props.title}
     </Text>
   );
@@ -36,12 +44,14 @@ Title.default = {
   title: '',
   type: 1,
   color: '#FFFFFF',
+  center: false,
 };
 
 Title.propTypes = {
   title: PropTypes.string,
   type: PropTypes.number,
   color: PropTypes.string,
+  center: PropTypes.bool,
 };
 
 export default Title;

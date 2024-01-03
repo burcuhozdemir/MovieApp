@@ -37,6 +37,9 @@ const style = StyleSheet.create({
     fontSize: scaleFontSize(10),
     lineHeight: scaleFontSize(12),
   },
+  center: {
+    textAlign: 'center',
+  },
 });
 
 export default style;

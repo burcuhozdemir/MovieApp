@@ -19,6 +19,10 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     marginTop: verticalScale(20),
   },
+  description: {
+    marginHorizontal: horizontalScale(55),
+    marginTop: verticalScale(10),
+  },
 });
 
 export default style;
