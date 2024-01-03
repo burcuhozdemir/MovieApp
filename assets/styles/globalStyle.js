@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {verticalScale} from './scaling';
 
 const globalStyle = StyleSheet.create({
-  backgroundWhite: {
+  background: {
     backgroundColor: '#1F1D2B',
   },
   flex: {
