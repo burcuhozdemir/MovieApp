@@ -9,7 +9,7 @@ import ResetPassword from '../screens/ResetPassword/ResetPassword';
 import Search from '../screens/Search/Search';
 import Download from '../screens/Download/Download';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
   faDownload,
