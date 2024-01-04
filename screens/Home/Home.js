@@ -6,6 +6,7 @@ import Title from '../../components/Title/Title';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import Search from '../../components/Search/Search';
+import CarouselCards from '../../components/CarouselCards/CarouselCards';
 
 const Home = () => {
   return (
@@ -32,6 +33,12 @@ const Home = () => {
         </View>
         <View style={style.searchBox}>
           <Search placeholder={'Search a title'} />
+        </View>
+        <View
+          style={{
+            alignItems: 'center',
+          }}>
+          <CarouselCards />
         </View>
       </ScrollView>
     </SafeAreaView>
