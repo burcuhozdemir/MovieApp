@@ -4,4 +4,7 @@ export const Routes = {
   Signup: 'Signup',
   ResetPassword: 'ResetPassword',
   Home: 'Home',
+  Profile: 'Profile',
+  Search: 'Search',
+  Download: 'Download',
 };

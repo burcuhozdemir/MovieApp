@@ -3,12 +3,12 @@ import style from './style';
 import {SafeAreaView, Text} from 'react-native';
 import globalStyle from '../../assets/styles/globalStyle';
 
-const Home = () => {
+const Profile = () => {
   return (
     <SafeAreaView style={[globalStyle.background, globalStyle.flex]}>
-      <Text>Home</Text>
+      <Text>Profile</Text>
     </SafeAreaView>
   );
 };
 
-export default Home;
+export default Profile;
