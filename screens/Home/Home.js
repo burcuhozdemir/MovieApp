@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import Search from '../../components/Search/Search';
 import CarouselCards from '../../components/CarouselCards/CarouselCards';
+import Tab from '../../components/Tab/Tab';
 
 const Home = () => {
   return (
@@ -34,12 +35,10 @@ const Home = () => {
         <View style={style.searchBox}>
           <Search placeholder={'Search a title'} />
         </View>
-        <View
-          style={{
-            alignItems: 'center',
-          }}>
+        <View style={globalStyle.aCenter}>
           <CarouselCards />
         </View>
+        <Tab title={'All'} />
       </ScrollView>
     </SafeAreaView>
   );

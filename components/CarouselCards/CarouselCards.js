@@ -1,8 +1,10 @@
 import React from 'react';
 import {View} from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
 import CarouselCardItem from './CarouselCardItem';
 import {ITEM_WIDTH, SLIDER_WIDTH} from './style';
+import globalStyle from '../../assets/styles/globalStyle';
+import style from './style';
 
 const data = [
   {
@@ -26,10 +28,11 @@ const data = [
 ];
 
 const CarouselCards = () => {
+  const [index, setIndex] = React.useState(1);
   const isCarousel = React.useRef(null);
 
   return (
-    <View>
+    <View style={globalStyle.flex}>
       <Carousel
         firstItem={1}
         layout={'default'}
@@ -38,8 +41,17 @@ const CarouselCards = () => {
         renderItem={CarouselCardItem}
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
-        inactiveSlideShift={0}
+        onSnapToItem={index => setIndex(index)}
         useScrollView={true}
+      />
+      <Pagination
+        dotsLength={data.length}
+        activeDotIndex={index}
+        carouselRef={isCarousel}
+        dotStyle={style.dotStyle}
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+        tappableDots={true}
       />
     </View>
   );

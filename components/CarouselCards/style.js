@@ -16,7 +16,7 @@ const style = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 7,
     borderRadius: horizontalScale(16),
-    marginVertical: verticalScale(10),
+    marginTop: verticalScale(10),
   },
   image: {
     width: ITEM_WIDTH,
@@ -28,6 +28,13 @@ const style = StyleSheet.create({
     bottom: verticalScale(10),
     marginHorizontal: horizontalScale(15),
     gap: 5,
+  },
+  dotStyle: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: 0,
+    backgroundColor: '#12CDD9',
   },
 });
 

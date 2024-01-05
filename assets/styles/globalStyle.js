@@ -8,6 +8,9 @@ const globalStyle = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  aCenter: {
+    alignItems: 'center',
+  },
 });
 
 export default globalStyle;
