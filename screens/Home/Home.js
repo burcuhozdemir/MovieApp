@@ -9,6 +9,7 @@ import Search from '../../components/Search/Search';
 import CarouselCards from '../../components/CarouselCards/CarouselCards';
 import Tab from '../../components/Tab/Tab';
 import Badge from '../../components/Badge/Badge';
+import Rating from '../../components/Rating/Rating';
 
 const Home = () => {
   return (
@@ -41,6 +42,7 @@ const Home = () => {
         </View>
         <Tab title={'All'} />
         <Badge title="Premium" type={2} />
+        <Rating title="4.5" />
       </ScrollView>
     </SafeAreaView>
   );
