@@ -10,6 +10,7 @@ import CarouselCards from '../../components/CarouselCards/CarouselCards';
 import Tab from '../../components/Tab/Tab';
 import Badge from '../../components/Badge/Badge';
 import Rating from '../../components/Rating/Rating';
+import OutlineButton from '../../components/OutlineButton/OutlineButton';
 
 const Home = () => {
   return (
@@ -43,6 +44,7 @@ const Home = () => {
         <Tab title={'All'} />
         <Badge title="Premium" type={2} />
         <Rating title="4.5" />
+        <OutlineButton title="See All" onPress={() => console.log('see')} />
       </ScrollView>
     </SafeAreaView>
   );
