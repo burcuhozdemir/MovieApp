@@ -8,6 +8,7 @@ import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import Search from '../../components/Search/Search';
 import CarouselCards from '../../components/CarouselCards/CarouselCards';
 import Tab from '../../components/Tab/Tab';
+import Badge from '../../components/Badge/Badge';
 
 const Home = () => {
   return (
@@ -39,6 +40,7 @@ const Home = () => {
           <CarouselCards />
         </View>
         <Tab title={'All'} />
+        <Badge title="Premium" type={2} />
       </ScrollView>
     </SafeAreaView>
   );
