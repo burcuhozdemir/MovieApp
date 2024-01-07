@@ -14,6 +14,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     gap: 5,
     backgroundColor: '#252836',
+    opacity: 0.7,
   },
   title: {
     fontFamily: 'Montserrat-Semibold',

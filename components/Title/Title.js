@@ -28,15 +28,18 @@ const Title = props => {
   const textRef = useRef(null);
 
   return (
-    <Text
-      ref={textRef}
-      style={[
-        styleToApply(),
-        props.color && {color: props.color},
-        props.center && style.center,
-      ]}>
-      {props.title}
-    </Text>
+    <View>
+      <Text
+        ref={textRef}
+        style={[
+          styleToApply(),
+          props.color && {color: props.color},
+          props.center && style.center,
+        ]}
+        numberOfLines={props.numberOfLines ? props.numberOfLines : null}>
+        {props.title}
+      </Text>
+    </View>
   );
 };
 
@@ -52,6 +55,7 @@ Title.propTypes = {
   type: PropTypes.number,
   color: PropTypes.string,
   center: PropTypes.bool,
+  numberOfLines: PropTypes.number,
 };
 
 export default Title;
