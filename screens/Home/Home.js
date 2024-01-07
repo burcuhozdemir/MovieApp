@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './style';
 import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {useSelector} from 'react-redux';
 import globalStyle from '../../assets/styles/globalStyle';
 import {horizontalScale} from '../../assets/styles/scaling';
 import Title from '../../components/Title/Title';
@@ -11,6 +12,8 @@ import CarouselCards from '../../components/CarouselCards/CarouselCards';
 import SingleHorizontalCardItem from '../../components/SingleHorizontalCardItem/SingleHorizontalCardItem';
 
 const Home = () => {
+  const user = useSelector(state => state.user);
+  console.log(user);
   return (
     <SafeAreaView style={[globalStyle.background, globalStyle.flex]}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -22,7 +25,11 @@ const Home = () => {
             style={style.image}
           />
           <View>
-            <Title title={'Hello, Smith'} type={4} color={'#FFFFFF'} />
+            <Title
+              title={'Hello, ' + user.firstName}
+              type={4}
+              color={'#FFFFFF'}
+            />
             <Title
               title={'Let’s stream your favorite movie'}
               type={5}
@@ -38,29 +45,6 @@ const Home = () => {
         </View>
         <View style={globalStyle.aCenter}>
           <CarouselCards />
-        </View>
-
-        <View style={{marginHorizontal: horizontalScale(20)}}>
-          <SingleHorizontalCardItem
-            uri="https://img.pixers.pics/pho_wat(s3:700/FO/44/24/64/31/700_FO44246431_ab024cd8251bff09ce9ae6ecd05ec4a8.jpg,525,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,305,650,jpg)/stickers-cactus-cartoon-illustration.jpg.jpg"
-            movieTitle="Deneme"
-            movieCategory="Action"
-            releaseDate="2021"
-            time="148 Minutes"
-            rating="4.5"
-            typeTitle="Premium"
-            typeNumber="1"
-          />
-          <SingleHorizontalCardItem
-            uri="https://img.pixers.pics/pho_wat(s3:700/FO/44/24/64/31/700_FO44246431_ab024cd8251bff09ce9ae6ecd05ec4a8.jpg,525,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,305,650,jpg)/stickers-cactus-cartoon-illustration.jpg.jpg"
-            movieTitle="Deneme"
-            movieCategory="Action"
-            releaseDate="2021"
-            time="148 Minutes"
-            rating="4.5"
-            typeTitle="Free"
-            typeNumber="2"
-          />
         </View>
       </ScrollView>
     </SafeAreaView>

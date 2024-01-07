@@ -105,12 +105,14 @@ function HomeScreen() {
 const MainNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName={Routes.Welcome}
+      initialRouteName={Routes.Home}
       screenOptions={{header: () => null, headerShown: false}}>
+      {/**
       <Stack.Screen name={Routes.Welcome} component={Welcome} />
       <Stack.Screen name={Routes.Login} component={Login} />
       <Stack.Screen name={Routes.ResetPassword} component={ResetPassword} />
       <Stack.Screen name={Routes.Signup} component={Signup} />
+      */}
       <Stack.Screen name={Routes.Home} component={HomeScreen} />
     </Stack.Navigator>
   );
