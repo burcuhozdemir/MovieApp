@@ -8,7 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import Search from '../../components/Search/Search';
 import CarouselCards from '../../components/CarouselCards/CarouselCards';
-import SingleVerticalCardItem from '../../components/SingleVerticalCardItem/SingleVerticalCardItem';
+import SingleHorizontalCardItem from '../../components/SingleHorizontalCardItem/SingleHorizontalCardItem';
 
 const Home = () => {
   return (
@@ -39,18 +39,27 @@ const Home = () => {
         <View style={globalStyle.aCenter}>
           <CarouselCards />
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            paddingHorizontal: horizontalScale(24),
-            maxWidth: '49%',
-          }}>
-          <SingleVerticalCardItem
+
+        <View style={{marginHorizontal: horizontalScale(20)}}>
+          <SingleHorizontalCardItem
             uri="https://img.pixers.pics/pho_wat(s3:700/FO/44/24/64/31/700_FO44246431_ab024cd8251bff09ce9ae6ecd05ec4a8.jpg,525,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,305,650,jpg)/stickers-cactus-cartoon-illustration.jpg.jpg"
-            movieTitle="Film Name "
-            movieCategory={'Action'}
+            movieTitle="Deneme"
+            movieCategory="Action"
+            releaseDate="2021"
+            time="148 Minutes"
             rating="4.5"
+            typeTitle="Premium"
+            typeNumber="1"
+          />
+          <SingleHorizontalCardItem
+            uri="https://img.pixers.pics/pho_wat(s3:700/FO/44/24/64/31/700_FO44246431_ab024cd8251bff09ce9ae6ecd05ec4a8.jpg,525,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,305,650,jpg)/stickers-cactus-cartoon-illustration.jpg.jpg"
+            movieTitle="Deneme"
+            movieCategory="Action"
+            releaseDate="2021"
+            time="148 Minutes"
+            rating="4.5"
+            typeTitle="Free"
+            typeNumber="2"
           />
         </View>
       </ScrollView>

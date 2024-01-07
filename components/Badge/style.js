@@ -7,7 +7,7 @@ import {
 
 const style = StyleSheet.create({
   badge: {
-    height: verticalScale(20),
+    height: verticalScale(15),
     justifyContent: 'center',
     borderRadius: horizontalScale(6),
   },

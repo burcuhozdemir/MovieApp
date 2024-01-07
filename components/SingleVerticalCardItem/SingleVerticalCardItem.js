@@ -6,7 +6,6 @@ import Rating from '../Rating/Rating';
 
 import style from './style';
 import Title from '../Title/Title';
-import {horizontalScale} from '../../assets/styles/scaling';
 
 const SingleVerticalCardItem = props => {
   return (

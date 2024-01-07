@@ -7,7 +7,7 @@ import {horizontalScale} from '../../assets/styles/scaling';
 const Badge = props => {
   const [width, setWidth] = useState(0);
   const textRef = useRef(null);
-  const paddingHorizontal = 10;
+  const paddingHorizontal = 5;
   const badgeWidth = {
     width: horizontalScale(paddingHorizontal * 2 + width),
   };

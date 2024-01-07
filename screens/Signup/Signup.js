@@ -44,14 +44,14 @@ const Signup = ({navigation}) => {
           <View style={style.input}>
             <Input
               label={'E-mail Address'}
-              keyboardType={'email'}
+              keyboardType={'email-address'}
               placeholder={'email@address.com'}
             />
           </View>
           <View style={style.input}>
             <Input
               label={'Password'}
-              keyboardType={'password'}
+              keyboardType={'visible-password'}
               placeholder={'********'}
               secureTextEntry={true}
             />
