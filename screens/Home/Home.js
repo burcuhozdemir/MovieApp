@@ -1,19 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from './style';
 import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import globalStyle from '../../assets/styles/globalStyle';
-import {horizontalScale} from '../../assets/styles/scaling';
 import Title from '../../components/Title/Title';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import Search from '../../components/Search/Search';
 import CarouselCards from '../../components/CarouselCards/CarouselCards';
-import SingleHorizontalCardItem from '../../components/SingleHorizontalCardItem/SingleHorizontalCardItem';
+import {getGenreList} from '../../redux/reducers/genrelist';
 
 const Home = () => {
-  const user = useSelector(state => state.user);
-  console.log(user);
+  const {isLoading, genreList} = useSelector(state => state.genreListReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGenreList());
+  }, []);
+
   return (
     <SafeAreaView style={[globalStyle.background, globalStyle.flex]}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -25,11 +29,7 @@ const Home = () => {
             style={style.image}
           />
           <View>
-            <Title
-              title={'Hello, ' + user.firstName}
-              type={4}
-              color={'#FFFFFF'}
-            />
+            <Title title={'Hello, John'} type={4} color={'#FFFFFF'} />
             <Title
               title={'Let’s stream your favorite movie'}
               type={5}
@@ -46,6 +46,13 @@ const Home = () => {
         <View style={globalStyle.aCenter}>
           <CarouselCards />
         </View>
+        {genreList && (
+          <View>
+            {genreList.map(value => {
+              return <Text>{value.name}</Text>;
+            })}
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
