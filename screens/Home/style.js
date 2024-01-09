@@ -25,6 +25,10 @@ const style = StyleSheet.create({
     marginHorizontal: horizontalScale(20),
     marginVertical: verticalScale(10),
   },
+  categories: {
+    marginHorizontal: horizontalScale(20),
+    marginBottom: verticalScale(10),
+  },
 });
 
 export default style;

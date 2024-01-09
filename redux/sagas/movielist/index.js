@@ -9,7 +9,6 @@ import {
 
 function* genreListApi(action) {
   try {
-    console.log('>> List >> ', action);
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.GENRE_LIST,

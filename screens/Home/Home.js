@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import style from './style';
-import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {Image, SafeAreaView, ScrollView, View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import globalStyle from '../../assets/styles/globalStyle';
 import Title from '../../components/Title/Title';
@@ -8,15 +8,22 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import Search from '../../components/Search/Search';
 import CarouselCards from '../../components/CarouselCards/CarouselCards';
-import {getGenreList} from '../../redux/reducers/genrelist';
+import {
+  getGenreList,
+  updateSelectedCategoryId,
+} from '../../redux/reducers/genrelist';
+import GenreList from '../../components/GenreList/GenreList';
 
 const Home = () => {
-  const {isLoading, genreList} = useSelector(state => state.genreListReducer);
+  const {selectedCategoryId, genreList} = useSelector(
+    state => state.genreListReducer,
+  );
+  const [pageNumber, setPageNumber] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getGenreList());
-  }, []);
+    dispatch(getGenreList({page: pageNumber}));
+  }, [pageNumber]);
 
   return (
     <SafeAreaView style={[globalStyle.background, globalStyle.flex]}>
@@ -46,13 +53,17 @@ const Home = () => {
         <View style={globalStyle.aCenter}>
           <CarouselCards />
         </View>
-        {genreList && (
-          <View>
-            {genreList.map(value => {
-              return <Text>{value.name}</Text>;
-            })}
-          </View>
-        )}
+        <View style={style.categories}>
+          <Title title={'Categories'} color={'#FFFFFF'} type={4} />
+        </View>
+        <GenreList
+          genres={genreList}
+          selectedCategoryId={selectedCategoryId}
+          onPress={item => dispatch(updateSelectedCategoryId(item.id))}
+          loadMoreData={() => {
+            setPageNumber(pageNumber + 1);
+          }}
+        />
       </ScrollView>
     </SafeAreaView>
   );

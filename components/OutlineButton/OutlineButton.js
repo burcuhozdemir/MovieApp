@@ -5,7 +5,7 @@ import style from './style';
 import {horizontalScale} from '../../assets/styles/scaling';
 const OutlineButton = props => {
   const [width, setWidth] = useState(0);
-  const paddingHorizontal = 16;
+  const paddingHorizontal = 5;
   const buttonWidth = {
     width: horizontalScale(paddingHorizontal * 3 + width),
   };
@@ -15,7 +15,13 @@ const OutlineButton = props => {
       onPress={() => {
         props.onPress();
       }}>
-      <Text style={style.title}>{props.title}</Text>
+      <Text
+        style={style.title}
+        onTextLayout={event => {
+          setWidth(event.nativeEvent.lines[0].width);
+        }}>
+        {props.title}
+      </Text>
     </Pressable>
   );
 };
