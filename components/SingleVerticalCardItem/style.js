@@ -5,12 +5,13 @@ const style = StyleSheet.create({
   card: {
     borderRadius: horizontalScale(12),
     backgroundColor: '#252836',
+    marginRight: horizontalScale(10),
   },
   image: {
     width: horizontalScale(135),
     height: verticalScale(170),
-    borderTopStartRadius: horizontalScale(12),
-    borderTopEndRadius: horizontalScale(12),
+    borderTopRightRadius: horizontalScale(12),
+    borderTopLeftRadius: horizontalScale(12),
   },
   rating: {
     position: 'absolute',
@@ -19,9 +20,8 @@ const style = StyleSheet.create({
     right: horizontalScale(8),
   },
   movieInformation: {
-    marginVertical: verticalScale(6),
+    marginVertical: verticalScale(9),
     marginHorizontal: horizontalScale(5),
-    gap: 4,
   },
 });
 

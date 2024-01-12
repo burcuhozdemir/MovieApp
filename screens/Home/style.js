@@ -29,6 +29,18 @@ const style = StyleSheet.create({
     marginHorizontal: horizontalScale(20),
     marginBottom: verticalScale(10),
   },
+  movieContainer: {
+    marginVertical: verticalScale(15),
+  },
+  popular: {
+    flexDirection: 'row',
+    marginHorizontal: horizontalScale(20),
+    marginTop: verticalScale(10),
+    justifyContent: 'space-between',
+  },
+  button: {
+    justifyContent: 'center',
+  },
 });
 
 export default style;

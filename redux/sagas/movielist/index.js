@@ -6,6 +6,16 @@ import {
   genreListSuccess,
   getGenreList,
 } from '../../reducers/genrelist';
+import {
+  movieListSuccess,
+  movieListFailure,
+  getMovieList,
+} from '../../reducers/movielist';
+import {
+  popularMovieSuccess,
+  popularMovieFailure,
+  getPopularMovie,
+} from '../../reducers/popularmovie';
 
 function* genreListApi(action) {
   try {
@@ -21,5 +31,37 @@ function* genreListApi(action) {
   }
 }
 
-const combineSagas = [takeEvery(getGenreList.type, genreListApi)];
+function* movieListApi(action) {
+  try {
+    const response = yield call(
+      AxiosService.getServiceData,
+      ApiUrls.MOVIE_LIST,
+      action.payload,
+    );
+    const result = response.data;
+    yield put(movieListSuccess(result));
+  } catch (error) {
+    yield put(movieListFailure());
+  }
+}
+
+function* popularMovieListApi(action) {
+  try {
+    const response = yield call(
+      AxiosService.getServiceData,
+      ApiUrls.POPULAR_MOVIE_LIST,
+      action.payload,
+    );
+    const result = response.data;
+    yield put(popularMovieSuccess(result));
+  } catch (error) {
+    yield put(popularMovieFailure());
+  }
+}
+
+const combineSagas = [
+  takeEvery(getGenreList.type, genreListApi),
+  takeEvery(getMovieList.type, movieListApi),
+  takeEvery(getPopularMovie.type, popularMovieListApi),
+];
 export default combineSagas;

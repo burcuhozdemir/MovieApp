@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 const genreListState = createSlice({
   name: 'genreList',
   initialState: {
-    selectedCategoryId: 1,
+    selectedCategoryId: 0,
     genreList: [],
     isLoading: false,
   },
@@ -13,7 +13,6 @@ const genreListState = createSlice({
     },
     genreListSuccess: (state, action) => {
       state.genreList = action.payload?.genres;
-      state.selectedCategoryId = state.genreList[0].id;
       state.isLoading = false;
     },
     genreListFailure: state => {

@@ -6,29 +6,31 @@ import Rating from '../Rating/Rating';
 
 import style from './style';
 import Title from '../Title/Title';
+import {Constants} from '../../appconstants/AppConstants';
 
 const SingleVerticalCardItem = props => {
   return (
     <Pressable onPress={() => props.onPress()}>
-      <View style={[style.card]}>
-        <View>
-          <View style={style.rating}>
-            <Rating title={props.rating} />
+      <View>
+        <View style={[style.card]}>
+          <View>
+            <View style={style.rating}>
+              <Rating title={props.rating} />
+            </View>
+            <Image
+              resizeMode="cover"
+              source={{uri: `${Constants.IMAGE_URL}${props.uri}`}}
+              style={style.image}
+            />
           </View>
-          <Image
-            resizeMode={'cover'}
-            source={{uri: props.uri}}
-            style={style.image}
-          />
-        </View>
-        <View style={style.movieInformation}>
-          <Title
-            title={props.movieTitle}
-            type={5}
-            color={'#FFFFFF'}
-            numberOfLines={1}
-          />
-          <Title title={props.movieCategory} type={7} color={'#92929D'} />
+          <View style={style.movieInformation}>
+            <Title
+              title={props.movieTitle}
+              type={5}
+              color={'#FFFFFF'}
+              numberOfLines={1}
+            />
+          </View>
         </View>
       </View>
     </Pressable>
@@ -41,9 +43,8 @@ SingleVerticalCardItem.defaultProps = {
 
 SingleVerticalCardItem.propTypes = {
   uri: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   movieTitle: PropTypes.string.isRequired,
-  movieCategory: PropTypes.string.isRequired,
   onPress: PropTypes.func,
 };
 

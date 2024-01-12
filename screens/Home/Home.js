@@ -12,17 +12,22 @@ import {
   getGenreList,
   updateSelectedCategoryId,
 } from '../../redux/reducers/genrelist';
+import {getPopularMovie} from '../../redux/reducers/popularmovie';
 import GenreList from '../../components/GenreList/GenreList';
+import HorizontalMovieList from '../../components/MovieList/HorizontalMovieList';
+import OutlineButton from '../../components/OutlineButton/OutlineButton';
 
 const Home = () => {
   const {selectedCategoryId, genreList} = useSelector(
     state => state.genreListReducer,
   );
   const [pageNumber, setPageNumber] = useState(1);
+  const {movieList} = useSelector(state => state.popularMovieReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getGenreList({page: pageNumber}));
+    dispatch(getGenreList());
+    dispatch(getPopularMovie({page: pageNumber}));
   }, [pageNumber]);
 
   return (
@@ -64,6 +69,21 @@ const Home = () => {
             setPageNumber(pageNumber + 1);
           }}
         />
+        <View style={style.popular}>
+          <Title title={'Most Popular'} color={'#FFFFFF'} type={4} />
+          <View style={style.button}>
+            <OutlineButton title="See All" />
+          </View>
+        </View>
+        <View style={style.movieContainer}>
+          <HorizontalMovieList
+            movies={movieList}
+            onPress={item => console.log(item.id)}
+            loadMoreData={() => {
+              setPageNumber(pageNumber + 1);
+            }}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
