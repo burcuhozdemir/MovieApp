@@ -30,6 +30,12 @@ const SingleVerticalCardItem = props => {
               color={'#FFFFFF'}
               numberOfLines={1}
             />
+            <Title
+              title={props.movieCategory}
+              type={7}
+              color={'#92929D'}
+              numberOfLines={1}
+            />
           </View>
         </View>
       </View>

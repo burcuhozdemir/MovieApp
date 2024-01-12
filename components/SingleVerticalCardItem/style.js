@@ -20,7 +20,8 @@ const style = StyleSheet.create({
     right: horizontalScale(8),
   },
   movieInformation: {
-    marginVertical: verticalScale(9),
+    marginVertical: verticalScale(5),
+    gap: 5,
     marginHorizontal: horizontalScale(5),
   },
 });

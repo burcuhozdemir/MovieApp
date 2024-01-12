@@ -78,6 +78,7 @@ const Home = () => {
         <View style={style.movieContainer}>
           <HorizontalMovieList
             movies={movieList}
+            genres={genreList}
             onPress={item => console.log(item.id)}
             loadMoreData={() => {
               setPageNumber(pageNumber + 1);

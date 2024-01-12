@@ -6,7 +6,7 @@ import Signup from '../screens/Signup/Signup';
 import Home from '../screens/Home/Home';
 import Profile from '../screens/Profile/Profile';
 import ResetPassword from '../screens/ResetPassword/ResetPassword';
-import Search from '../screens/Search/Search';
+import Search from '../screens/Search/SearchScreen';
 import Download from '../screens/Download/Download';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View, Text} from 'react-native';
