@@ -13,6 +13,7 @@ const genreListState = createSlice({
     },
     genreListSuccess: (state, action) => {
       state.genreList = action.payload?.genres;
+      state.selectedCategoryId = action.payload?.genres[0].id;
       state.isLoading = false;
     },
     genreListFailure: state => {

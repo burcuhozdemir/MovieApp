@@ -2,8 +2,8 @@ import {createSlice} from '@reduxjs/toolkit';
 const popularMovieState = createSlice({
   name: 'popularMovie',
   initialState: {
-    movie: {},
-    movieList: [],
+    popularMovie: {},
+    popularMovieList: [],
     isLoading: false,
   },
   reducers: {
@@ -11,8 +11,11 @@ const popularMovieState = createSlice({
       state.isLoading = true;
     },
     popularMovieSuccess: (state, action) => {
-      state.movie = action.payload;
-      state.movieList = [...state.movieList, ...action.payload?.results];
+      state.popularMovie = action.payload;
+      state.popularMovieList = [
+        ...state.popularMovieList,
+        ...action.payload?.results,
+      ];
       state.isLoading = false;
     },
     popularMovieFailure: state => {

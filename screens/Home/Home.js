@@ -22,7 +22,7 @@ const Home = () => {
     state => state.genreListReducer,
   );
   const [pageNumber, setPageNumber] = useState(1);
-  const {movieList} = useSelector(state => state.popularMovieReducer);
+  const {popularMovieList} = useSelector(state => state.popularMovieReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -77,7 +77,7 @@ const Home = () => {
         </View>
         <View style={style.movieContainer}>
           <HorizontalMovieList
-            movies={movieList}
+            movies={popularMovieList}
             genres={genreList}
             onPress={item => console.log(item.id)}
             loadMoreData={() => {
