@@ -9,6 +9,7 @@ import Title from '../Title/Title';
 import Badge from '../Badge/Badge';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faCalendar, faClock, faFilm} from '@fortawesome/free-solid-svg-icons';
+import {Constants} from '../../appconstants/AppConstants';
 
 const SingleHorizontalCardItem = props => {
   return (
@@ -20,12 +21,12 @@ const SingleHorizontalCardItem = props => {
           </View>
           <Image
             resizeMode={'cover'}
-            source={{uri: props.uri}}
+            source={{uri: `${Constants.IMAGE_URL}${props.uri}`}}
             style={style.image}
           />
         </View>
         <View style={style.movieInformation}>
-          <Badge title={props.typeTitle} type={parseInt(props.typeNumber)} />
+          <Badge title={props.typeTitle} type={props.typeNumber} />
           <Title
             title={props.movieTitle}
             type={4}
@@ -59,7 +60,7 @@ SingleHorizontalCardItem.propTypes = {
   uri: PropTypes.string.isRequired,
   rating: PropTypes.string.isRequired,
   movieTitle: PropTypes.string.isRequired,
-  movieCategory: PropTypes.string.isRequired,
+  movieCategory: PropTypes.string,
   releaseDate: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   typeTitle: PropTypes.string.isRequired,

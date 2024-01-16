@@ -16,6 +16,11 @@ import {
   popularMovieFailure,
   getPopularMovie,
 } from '../../reducers/popularmovie';
+import {
+  getSearchMovieList,
+  searchMovieListFailure,
+  searchMovieListSuccess,
+} from '../../reducers/searchmovie';
 
 function* genreListApi(action) {
   try {
@@ -59,9 +64,23 @@ function* popularMovieListApi(action) {
   }
 }
 
+function* searchMovieListApi(action) {
+  try {
+    const response = yield call(
+      AxiosService.getServiceData,
+      ApiUrls.SEARCH_MOVIE(action.payload.query),
+    );
+    const result = response.data;
+    yield put(searchMovieListSuccess(result));
+  } catch (error) {
+    yield put(searchMovieListFailure());
+  }
+}
+
 const combineSagas = [
   takeEvery(getGenreList.type, genreListApi),
   takeEvery(getMovieList.type, movieListApi),
   takeEvery(getPopularMovie.type, popularMovieListApi),
+  takeEvery(getSearchMovieList.type, searchMovieListApi),
 ];
 export default combineSagas;

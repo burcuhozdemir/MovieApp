@@ -23,7 +23,7 @@ const Rating = props => {
         }}
         ref={textRef}
         style={[style.title]}>
-        {props.title}
+        {props.title.toFixed(1)}
       </Text>
     </View>
   );

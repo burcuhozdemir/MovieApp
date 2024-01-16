@@ -21,6 +21,7 @@ const movieListState = createSlice({
     },
   },
 });
+
 export const {getMovieList, movieListSuccess, movieListFailure} =
   movieListState.actions;
 export default movieListState.reducer;
